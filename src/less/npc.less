@@ -4,6 +4,14 @@
 /*  Basic Structure                          */
 /* ----------------------------------------- */
 .sfrpg.sheet.actor.npc {
+  .sheet-header {
+    .summary {
+      .alignment-header {
+        width: 115px;
+      }
+    }
+  }
+    
   min-width: 720px;
   min-height: 765px;
 
@@ -14,14 +22,57 @@
 
   ul.attributes {
     li.attribute {
+      height: 60px;
+      
+      &.attribute-group {
+        height: 105px;
+      }
+      
+      &.attribute-speed {
+        height: 70px;
+      }
+
       &.save {
         height: 90px;
+      }
+      
+      .save-name {
+        padding: 0 0 0 5px;
+        margin: 3px 0 0 0;
+        flex: 0 0 70px;
+        text-align: left;
+      }
+
+      .attribute-value {
+        height: 25px;
+        line-height: 25px;
+        
+        &.attribute-mod {
+            flex: 0 0 50px;
+        }
+        
+        &.attribute-notes {
+            flex: max-content;
+            input {
+                font-family: "Signika", "Palatino Linotype", serif;
+                font-size: 12px;
+                text-align: left;
+            }
+        }
+      }
+
+      .attribute-footer {        
+        &.speed-footer {
+          padding-top: 10px;
+        }
       }
     }
   }
 
   .ability-scores {
     .ability {
+      height: 62px;
+
       .ability-modifiers {
         span.ability-mod {
           flex: 0 0 24px;
@@ -41,5 +92,15 @@
       text-align: center;
       height: 18px;
     }
+  }
+  
+  ul.left-side {
+    margin-top: 0px;
+    margin-left: -19px;
+    flex: 2;
+  }
+  
+  section.center-pane {
+    flex: 4;
   }
 }

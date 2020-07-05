@@ -1,4 +1,5 @@
 import { ActorSheetSFRPG } from "./base.js";
+import { NotesSFRPG } from "../../apps/notes.js"
 
 /**
  * An Actor sheet for NPC type characters in the SFRPG system.
@@ -29,6 +30,9 @@ export class ActorSheetSFRPGNPC extends ActorSheetSFRPG {
         super.activateListeners(html);
 
         html.find('#add-skills').click(this._toggleSkills.bind(this));
+
+        // Notes
+        html.find('.notes').click(ev => this._onNotesSelector(ev));
     }
 
     getData() {
@@ -50,6 +54,26 @@ export class ActorSheetSFRPGNPC extends ActorSheetSFRPG {
         event.preventDefault();
         
         this.actor.toggleNpcSkills();
+    }
+
+    /**
+     * Creates an NotesSFRPG dialog
+     * 
+     * @param {Event} event HTML Event
+     */
+    _onNotesSelector(event) {
+        event.preventDefault();
+        const input = event.currentTarget;
+
+        const summaryPath = input.getAttribute("name");
+        const notesPath   = input.getAttribute("notes");
+        
+        const options = {
+            notes: notesPath,
+            summary: summaryPath
+        };
+
+        new NotesSFRPG(this.actor, options).render(true);
     }
 
     _prepareItems(data) {

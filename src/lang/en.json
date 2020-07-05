@@ -799,4 +799,9 @@
 
         "LocalizationTerminator": ""
     }
+    "SFRPG.DamImm": "Immunities, Damage",
+    "SFRPG.DamRes": "Resistances",
+    "SFRPG.DamVuln": "Weaknesses",
+    "SFRPG.ConImm": "Immunities, Conditions",
+    "SFRPG.NotesSummary": "Summary",
 }

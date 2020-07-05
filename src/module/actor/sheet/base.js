@@ -161,6 +161,7 @@ export class ActorSheetSFRPG extends ActorSheet {
             // const item = this.actor.getEmbeddedEntity("OwnedItem", itemId);
             item.sheet.render(true);
         });
+        html.find('.item-create').click(ev => this._onItemCreate(ev));
 
         // Delete Inventory Item
         html.find('.item-delete').click(ev => {
